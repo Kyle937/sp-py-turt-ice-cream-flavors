@@ -30,6 +30,10 @@ def iceCream(flavor):
     end_fill()
     penup()
 
+def moveUp():
+    seth(90)
+    setx(0)
+    forward(50)
 def click_handler(x, y):
     if movable[0]:
         movable.append(False)
@@ -53,13 +57,19 @@ def click_handler(x, y):
                     selection.append(Chocolate)
                 selection.pop(0)
                 goto(0,-80)
-                iceCream(selection[3])
-                goto(0,-30)
-                iceCream(selection[2])
-                goto(0,20)
-                iceCream(selection[1])
-                goto(0,70)
-                iceCream(selection[0])
+                if selection[0] != "maroon":
+                    iceCream(selection[0])
+                    moveUp()
+                if selection[1] != "maroon":
+                    iceCream(selection[1])
+                    moveUp()
+                if selection[2] != "maroon":
+                    iceCream(selection[2])
+                    moveUp()
+                if selection[3] != "maroon":
+                    iceCream(selection[3])
+                    moveUp()
+        
         goto(x, y)
         color("cyan")
         seth(135)
