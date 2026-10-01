@@ -12,7 +12,7 @@ BubbleGum = "#ffb6c1"
 # placeholder selection
 selection = ["maroon","maroon","maroon","maroon"]
 # validation
-movable = [True]
+movable = [False]
 # methods
 def getInfo(flavor):
 
@@ -88,14 +88,14 @@ def click_handler(x, y):
         movable.pop(0)
 # setup
 speed(0)
-setup(500,500)
+setup(500,400)
 showturtle()
 goto(0,0)
 turtlesize(2)
 title("Gibby")
 pensize(4)
 # background
-bgcolor("maroon")
+bgcolor("#cc0000")
 bgLines = -275
 while bgLines < 250:
     penup()
@@ -106,15 +106,25 @@ while bgLines < 250:
     bgLines += 80
 penup()
 # title
+TitleFont = ("Impact", 20, "bold", "italic")
+color("black")
+goto(-148, 148)
+write("Gibby's Ice Cream Specal ", font=TitleFont)
 color("white")
-TitleFont = ("Monospace", 20, "bold", "italic")
-goto(-150, 150)
-write("Gibby's Ice Cream Specal", font=TitleFont)
+goto(-152, 152)
+write("Gibby's Ice Cream Specal ", font=TitleFont)
 # menu
-goto(-225,100)
+goto(-223,98)
 seth(-90)
 pendown()
 color("black")
+for i in range(2):
+    forward(200)
+    left(90)
+    forward(100)
+    left(90)
+goto(-225,100)
+seth(-90)
 begin_fill()
 for i in range(2):
     forward(200)
@@ -125,21 +135,62 @@ color("white")
 end_fill()
 MenuFont = ("Monospace", 10, "bold",)
 penup()
+
+color("Maroon")
+goto(-214,69)
+write("Chocolate", font=MenuFont)
 color("Red")
 goto(-215,70)
 write("Chocolate", font=MenuFont)
+
+color("Maroon")
+goto(-214,44)
+write("Vanilla", font=MenuFont)
+color("Red")
 goto(-215,45)
 write("Vanilla", font=MenuFont)
+
+color("Maroon")
+goto(-214,19)
+write("Mint", font=MenuFont)
+color("Red")
 goto(-215,20)
 write("Mint", font=MenuFont)
+
+color("Maroon")
+goto(-214,-5)
+write("Strawberry", font=MenuFont)
+color("Red")
 goto(-215,-5)
 write("Strawberry", font=MenuFont)
+
+color("Maroon")
+goto(-214,-31)
+write("Banana", font=MenuFont)
+color("Red")
 goto(-215,-30)
 write("Banana", font=MenuFont)
+
+color("Maroon")
+goto(-214,-56)
+write("Coffee", font=MenuFont)
+color("Red")
 goto(-215,-55)
 write("Coffee", font=MenuFont)
+
+color("Maroon")
+goto(-214,-81)
+write("Bubble Gum", font=MenuFont)
+color("Red")
 goto(-215,-80)
 write("Bubble Gum", font=MenuFont)
+
+color("black")
+goto(-214,-121)
+write("max of 4", font=MenuFont)
+color("white")
+goto(-215,-120)
+write("max of 4", font=MenuFont)
 
 # cone
 penup()
@@ -177,5 +228,6 @@ penup()
 seth(135)
 goto(0,0)
 color("cyan")
+movable = [True]
 onscreenclick(click_handler)
 done()
