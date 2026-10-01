@@ -8,4 +8,4 @@ Gibbys has a limited time offer where you can try 4 of their flavors on one ice 
 <img src="./images/output.png" width=400 />
 
 ## Challenge
-Use an API to display calorie information on the right side of the board!
+there unfortunitly is no API for the calorie information .̪ .

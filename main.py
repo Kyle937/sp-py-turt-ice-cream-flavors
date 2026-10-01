@@ -1,4 +1,6 @@
 from turtle import *
+import requests
+import json
 # flavor colors
 Chocolate = "#7a4104"
 Vanilla = "#fffce3"
@@ -12,6 +14,15 @@ selection = ["maroon","maroon","maroon","maroon"]
 # validation
 movable = [True]
 # methods
+def getInfo(flavor):
+
+    endpoint = f"https://www.{flavor}"
+
+    response = requests.get(endpoint)
+
+    fruitData = response.json()
+
+    return fruitData
 def iceCream(flavor):
     color("black")
     seth(180)
@@ -41,17 +52,17 @@ def click_handler(x, y):
         penup()
         if x > -225 and x < -125:
             if y < 100 and y > -100:
-                if y < -65:
+                if y < -60:
                     selection.append(BubbleGum)
-                elif y < -40:
+                elif y < -35:
                     selection.append(Coffee)
-                elif y < -15:
+                elif y < -10:
                     selection.append(Banana)
-                elif y < 10:
+                elif y < 15:
                     selection.append(Strawberry)
-                elif y < 35:
+                elif y < 40:
                     selection.append(Mint)
-                elif y < 60:
+                elif y < 65:
                     selection.append(Vanilla)
                 else:
                     selection.append(Chocolate)
