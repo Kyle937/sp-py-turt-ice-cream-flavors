@@ -7,22 +7,45 @@ Vanilla = "#fffce3"
 Mint = "#66ffcc"
 Strawberry = "#ff4d4d"
 Banana = "#fcf090"
-Coffee = "#d2a679"
+Pecan = "#d2a679"
 BubbleGum = "#ffb6c1"
 # placeholder selection
 selection = ["maroon","maroon","maroon","maroon"]
+cal = [0,0,0,0]
 # validation
 movable = [False]
+# api's
+''' not done
+["nutritions"]["calories"]
+(requests.get(f"")).json()
+'''
 # methods
-def getInfo(flavor):
-
-    endpoint = f"https://www.{flavor}"
-
-    response = requests.get(endpoint)
-
-    fruitData = response.json()
-
-    return fruitData
+def calories():
+    goto(91,-106)
+    seth(0)
+    pendown()
+    color("black")
+    for i in range(2):
+        forward(100)
+        left(90)
+        forward(25)
+        left(90)
+    goto(90,-105)
+    begin_fill()
+    for i in range(2):
+        forward(100)
+        left(90)
+        forward(25)
+        left(90)
+    color("white")
+    end_fill()
+    penup()
+    color("Maroon")
+    goto(101,-101)
+    write(f"calories: {cal[0]+cal[1]+cal[2]+cal[3]}", font=MenuFont)
+    color("Red")
+    goto(100,-100)
+    write(f"calories: {cal[0]+cal[1]+cal[2]+cal[3]}", font=MenuFont)
 def iceCream(flavor):
     color("black")
     seth(180)
@@ -54,19 +77,28 @@ def click_handler(x, y):
             if y < 100 and y > -100:
                 if y < -60:
                     selection.append(BubbleGum)
+                    cal.append(193)
                 elif y < -35:
-                    selection.append(Coffee)
+                    selection.append(Pecan)
+                    cal.append(180)
                 elif y < -10:
                     selection.append(Banana)
+                    cal.append(234)
                 elif y < 15:
                     selection.append(Strawberry)
+                    cal.append(192)
                 elif y < 40:
                     selection.append(Mint)
+                    cal.append(196)
                 elif y < 65:
                     selection.append(Vanilla)
+                    cal.append(207)
                 else:
                     selection.append(Chocolate)
+                    cal.append(216)
                 selection.pop(0)
+                cal.pop(0)
+                calories()
                 goto(0,-80)
                 if selection[0] != "maroon":
                     iceCream(selection[0])
@@ -173,10 +205,10 @@ write("Banana", font=MenuFont)
 
 color("Maroon")
 goto(-214,-56)
-write("Coffee", font=MenuFont)
+write("Pecan", font=MenuFont)
 color("Red")
 goto(-215,-55)
-write("Coffee", font=MenuFont)
+write("Pecan", font=MenuFont)
 
 color("Maroon")
 goto(-214,-81)

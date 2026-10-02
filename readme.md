@@ -8,4 +8,6 @@ Gibbys has a limited time offer where you can try 4 of their flavors on one ice 
 <img src="./images/output.png" width=400 />
 
 ## Challenge
-there unfortunitly is no API for the calorie information .̪ .
+i couldnt find an API for the calorie information .̪ .
+so i just copied down the informtation from edamam
+https://www.edamam.com/foods/?/
