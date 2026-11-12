@@ -9,5 +9,5 @@ Gibbys has a limited time offer where you can try 4 of their flavors on one ice 
 
 ## Challenge
 i couldnt find an API for the calorie information .̪ .
-so i just copied down the informtation from edamam
-https://www.edamam.com/foods/?/
+so i substituted it with a csv i found (basically an API)
+https://github.com/prasertcbs/basic-dataset/blob/master/BenJerryNutrition.csv
