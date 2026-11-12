@@ -1,6 +1,17 @@
 from turtle import *
 import requests
 import json
+import matplotlib.pyplot as plt
+import numpy as np
+
+'''
+with open("Flavors.csv", mode = "r") as flavorFile:
+    # mode "r" = read
+    # "as" renames the function to a simple name
+
+    flavors = csv.reader(flavorFile)
+    next(books)
+'''
 # flavor colors
 Chocolate = "#7a4104"
 Vanilla = "#fffce3"
