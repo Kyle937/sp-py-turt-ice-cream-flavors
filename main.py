@@ -12,26 +12,14 @@ with open("YA_Flavors.csv", mode = "r") as flavorFile:
 
     flavors = csv.reader(flavorFile)
     next(flavors)
-
-    # flavor colors
-    Chocolate = "#7a4104"
-    Vanilla = "#fffce3"
-    Mint = "#66ffcc"
-    Strawberry = "#ff4d4d"
-    Banana = "#fcf090"
-    Pecan = "#d2a679"
-    BubbleGum = "#ffb6c1"
-    # placeholder selection
-    selection = ["maroon","maroon","maroon","maroon"]
-    cal = [0,0,0,0]
-    # validation
-    movable = [False]
-    # api's
-    ''' not done
-    ["nutritions"]["calories"]
-    (requests.get(f"")).json()
-    '''
     # methods
+    def findCal(RequestedCal):
+        for item in flavors:
+            flavor = item[0]
+            cal = item[1]
+            if flavor == RequestedCal:
+                return int(cal)
+        return 0 # backup number incase if the requested flavor isnt in the csv
     def calories():
         goto(91,-106)
         seth(0)
@@ -88,28 +76,29 @@ with open("YA_Flavors.csv", mode = "r") as flavorFile:
             if x > -225 and x < -125:
                 if y < 100 and y > -100:
                     if y < -60:
-                        selection.append(BubbleGum)
-                        cal.append(193)
+                        selection.append(Strawberry)
+                        cal.append(StrawberryCal)
                     elif y < -35:
-                        selection.append(Pecan)
-                        cal.append(180)
+                        selection.append(Smores)
+                        cal.append(SmoresCal)
                     elif y < -10:
                         selection.append(Banana)
-                        cal.append(234)
+                        cal.append(BananaCal)
                     elif y < 15:
-                        selection.append(Strawberry)
-                        cal.append(192)
+                        selection.append(Velvet)
+                        cal.append(VelvetCal)
                     elif y < 40:
                         selection.append(Mint)
-                        cal.append(196)
+                        cal.append(MintCal)
                     elif y < 65:
                         selection.append(Vanilla)
-                        cal.append(207)
+                        cal.append(VanillaCal)
                     else:
                         selection.append(Chocolate)
-                        cal.append(216)
+                        cal.append(ChocolateCal)
                     selection.pop(0)
                     cal.pop(0)
+                    print(cal)
                     calories()
                     goto(0,-80)
                     if selection[0] != "maroon":
@@ -130,6 +119,28 @@ with open("YA_Flavors.csv", mode = "r") as flavorFile:
             seth(135)
             movable.append(True)
             movable.pop(0)
+    # flavor colors
+    Chocolate = "#7a4104"
+    Vanilla = "#fffce3"
+    Mint = "#66ffcc"
+    Velvet = "#ff4d4d"
+    Banana = "#fcf090"
+    Smores = "#d2a679"
+    Strawberry = "#ffb6c1"
+    # flavor calories
+    ChocolateCal = findCal("Chocolate")
+    VanillaCal = findCal("Vanilla")
+    MintCal = findCal("Mint Chocolate Cookie")
+    VelvetCal = findCal("Red Velvet Cake")
+    BananaCal = findCal("Banana Split")
+    SmoresCal = findCal("S'mores")
+    StrawberryCal = findCal("Strawberry Cheesecake")
+    print([ChocolateCal,VanillaCal,MintCal,VelvetCal,BananaCal,SmoresCal,StrawberryCal])
+    # placeholder selection
+    selection = ["maroon","maroon","maroon","maroon"]
+    cal = [0,0,0,0]
+    # validation
+    movable = [False]
     # setup
     speed(0)
     setup(500,400)
@@ -203,10 +214,10 @@ with open("YA_Flavors.csv", mode = "r") as flavorFile:
 
     color("Maroon")
     goto(-214,-5)
-    write("Strawberry", font=MenuFont)
+    write("Red Velvet", font=MenuFont)
     color("Red")
     goto(-215,-5)
-    write("Strawberry", font=MenuFont)
+    write("Red Velvet", font=MenuFont)
 
     color("Maroon")
     goto(-214,-31)
@@ -217,17 +228,17 @@ with open("YA_Flavors.csv", mode = "r") as flavorFile:
 
     color("Maroon")
     goto(-214,-56)
-    write("Pecan", font=MenuFont)
+    write("Smores", font=MenuFont)
     color("Red")
     goto(-215,-55)
-    write("Pecan", font=MenuFont)
+    write("Smores", font=MenuFont)
 
     color("Maroon")
     goto(-214,-81)
-    write("Bubble Gum", font=MenuFont)
+    write("Strawberry", font=MenuFont)
     color("Red")
     goto(-215,-80)
-    write("Bubble Gum", font=MenuFont)
+    write("Strawberry", font=MenuFont)
 
     color("black")
     goto(-214,-121)
