@@ -98,7 +98,6 @@ with open("YA_Flavors.csv", mode = "r") as flavorFile:
                         cal.append(ChocolateCal)
                     selection.pop(0)
                     cal.pop(0)
-                    print(cal)
                     calories()
                     goto(0,-80)
                     if selection[0] != "maroon":
@@ -128,14 +127,15 @@ with open("YA_Flavors.csv", mode = "r") as flavorFile:
     Smores = "#d2a679"
     Strawberry = "#ffb6c1"
     # flavor calories
+    BananaCal = findCal("Banana Split")
     ChocolateCal = findCal("Chocolate")
-    VanillaCal = findCal("Vanilla")
     MintCal = findCal("Mint Chocolate Cookie")
     VelvetCal = findCal("Red Velvet Cake")
-    BananaCal = findCal("Banana Split")
     SmoresCal = findCal("S'mores")
     StrawberryCal = findCal("Strawberry Cheesecake")
-    print([ChocolateCal,VanillaCal,MintCal,VelvetCal,BananaCal,SmoresCal,StrawberryCal])
+    VanillaCal = findCal("Vanilla")
+    # checking if the numbers were assigned correctly
+    #print([ChocolateCal,VanillaCal,MintCal,VelvetCal,BananaCal,SmoresCal,StrawberryCal]) 
     # placeholder selection
     selection = ["maroon","maroon","maroon","maroon"]
     cal = [0,0,0,0]
